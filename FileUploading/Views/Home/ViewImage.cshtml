@@ -1,0 +1,26 @@
+﻿@model ViewImageViewModel
+
+@if (Model.ShowImage)
+{
+    <img src="uploads/@Model.Image.Name"/>
+    <h3>@Model.Image.View</h3>
+}
+else
+{
+    <div class="jumbotron">
+
+        @if (Model.ShowMessage)
+        {
+            <h4 class="alert-danger">Invalid password</h4>
+        }
+
+        <form action="/home/viewimage">
+            <div class="row">
+                <input type="hidden" name="id" value="@Model.Image.Id"/>
+                <label for="password-input">Please enter the password for this image: </label>
+                <input type="text" name="password" id="password-input" placeholder="Password"/>
+                <button class="btn btn-primary" id="Submit-password">Submit</button>
+            </div>
+        </form>
+    </div>
+    }
